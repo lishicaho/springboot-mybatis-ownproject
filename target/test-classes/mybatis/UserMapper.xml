@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.UserMapper">
+ 
+  <select id="findUserByPhone" parameterType="string" resultType="com.springboot.demo.User">
+    SELECT * FROM T_USER WHERE PHONE = #{phone}
+  </select>
+  
+   <select id="insert" parameterType="java.util.Map" resultType="int">
+    insert into user (age,name,password) values (#{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+  </select>
+</mapper>
