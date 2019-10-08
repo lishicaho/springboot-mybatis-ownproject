@@ -22,4 +22,13 @@ public class UserService {
 		return 1;
 	}
 
+	public Boolean login(User user){
+		User us=userMapper.select(user);
+		if(us!=null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }

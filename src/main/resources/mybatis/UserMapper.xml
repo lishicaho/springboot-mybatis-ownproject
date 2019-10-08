@@ -6,7 +6,11 @@
     SELECT * FROM T_USER WHERE PHONE = #{phone}
   </select>
   
-   <select id="insert" parameterType="java.util.Map">
+   <insert id="insert" parameterType="java.util.Map">
     insert into t_user (name,password,phone) values (#{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{phone,jdbcType=INTEGER})
-  </select>
+  </insert>
+
+    <select id="select" parameterType="com.springboot.demo.User" resultType="com.springboot.demo.User">
+        select * FROM T_USER WHERE name = #{name} and password = #{password}
+    </select>
 </mapper>

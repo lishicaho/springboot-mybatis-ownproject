@@ -1,1 +1,14 @@
-/target/
+**/target/
+**/.classpath
+**/.project
+**/.factorypath
+**/.settings/
+**/bin/
+**/classes
+**/*.iml
+**/.DS_Store
+**/.idea
+**/rebel.xml
+**/generatorConfig.xml
+**/logs
+**/filter/filter-local.properties

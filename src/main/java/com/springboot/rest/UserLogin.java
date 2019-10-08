@@ -5,6 +5,9 @@ import com.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class UserLogin {
 
@@ -13,11 +16,18 @@ public class UserLogin {
 
     @RequestMapping(value="/user/login", method= RequestMethod.POST)
     @ResponseBody
-    public User getUserInfo(@RequestBody User user) {
-       // User user =userService.login(user);
-        if(user!=null){
+    public Map getUserInfo(@RequestBody User user) {
+        Boolean bl=userService.login(user);
+        String msg=null;
+        Map map =new HashMap();
+        if(bl){
+            msg="登陆成功";
+            map.put("msg","登陆成功");
+        }else{
+            msg="登陆失败";
+            map.put("msg","登陆失败");
         }
-        return user;
+        return map;
     }
 
 
