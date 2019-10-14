@@ -1,12 +1,18 @@
 package com.springboot.rest;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.springboot.demo.User;
 import com.springboot.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class UserLogin {
@@ -28,6 +34,15 @@ public class UserLogin {
             map.put("msg","登陆失败");
         }
         return map;
+    }
+    
+    
+    @RequestMapping(value="/user/message", method= RequestMethod.GET)
+    @ResponseBody
+    public List<User> getMessage() {
+    	List<User> user=userService.getMessage();
+        
+        return user;
     }
 
 

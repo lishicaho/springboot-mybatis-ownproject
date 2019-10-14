@@ -9,4 +9,8 @@
    <select id="insert" parameterType="java.util.Map" resultType="int">
     insert into user (age,name,password) values (#{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
   </select>
+  
+  <select id="getMessage" resultType="com.springboot.demo.User">
+     SELECT * FROM T_USER
+  </select>
 </mapper>

@@ -13,4 +13,8 @@
     <select id="select" parameterType="com.springboot.demo.User" resultType="com.springboot.demo.User">
         select * FROM T_USER WHERE name = #{name} and password = #{password}
     </select>
+    
+    <select id="getMessage" resultType="com.springboot.demo.User">
+     SELECT * FROM T_USER
+    </select>
 </mapper>
